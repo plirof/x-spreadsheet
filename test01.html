@@ -21,10 +21,18 @@
 							  showContextmenu: true,
 							});
 
+
+
+    	setTimeout(
+    		function() { console.log ("HELLO getData");
+    		getData(xs);
+	    }, 4000);
+
     	setTimeout(
     		function() { console.log ("HELLO TIMEOut");
     		fillData(xs);
 	    }, 2000);
+
 
     }
 
@@ -39,6 +47,14 @@
 
 
         
+
+<script>
+ // x.spreadsheet.locale('el');
+ function getData( xs){
+        console.log(JSON.stringify(xs.getData()));
+    }
+
+</script>    
 
 
 <script>
