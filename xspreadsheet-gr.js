@@ -1312,7 +1312,7 @@
                     redo: "Επαναφορά - Redo",
                     paintformat: "Paint format",
                     clearformat: "Clear format",
-                    format: "Format",
+                    format: "Μορφή",
                     fontName: "Γραμματοσειρά",
                     fontSize: "Μέγεθος Γραμματοσειράς",
 		            fontBold: "Έντονη γραφή",
@@ -1322,7 +1322,7 @@
                     color: "Χρώμα Κειμένου",
                     bgcolor: "Χρώμα Γεμίσματος/υπογράμισης",
                     border: "Περιθώρια",
-                    merge: "Merge cells",
+                    merge: "Συγχώνευση Κελιών",
                     align: "Όριζόντια στοίχιση",
                     valign: "Κάθετη στοίχιση",
                     textwrap: "Αναδίπλωση κειμένου",
@@ -1335,8 +1335,8 @@
                     copy: "Αντιγραφή",
                     cut: "Αποκοπή",
                     paste: "Επικόλληση",
-                    pasteValue: "Paste values only",
-                    pasteFormat: "Paste format only",
+                    pasteValue: "Επικόλληση τιμών μόνο",
+                    pasteFormat: "Επικόλληση μορφών μόνο",
                     insertRow: "Εισαγωγή Γραμμής",
                     insertColumn: "Εισαγωγή Στήλης",
                     deleteRow: "Διαγραφή Γραμμής",
@@ -1370,19 +1370,19 @@
                 },
                 validation: {
                     required: "it must be required",
-                    notMatch: "it not match its validation rule",
-                    between: "it is between {} and {}",
-                    notBetween: "it is not between {} and {}",
-                    notIn: "it is not in list",
-                    equal: "it equal to {}",
-                    notEqual: "it not equal to {}",
-                    lessThan: "it less than {}",
-                    lessThanEqual: "it less than or equal to {}",
-                    greaterThan: "it greater than {}",
-                    greaterThanEqual: "it greater than or equal to {}"
+                    notMatch: "αυτό δεν ταιριάζει με τον κανόνα επικύρωσης",
+                    between: "αυτό ειναι ανάμεσα στο {} και {}",
+                    notBetween: "αυτό δεν ειναι ανάμεσα στο {} και {}",
+                    notIn: "αυτό δεν είναι στην λίστα",
+                    equal: "αυτό είναι ίσο μέ {}",
+                    notEqual: "αυτό δεν είναι ίσο με {}",
+                    lessThan: "αυτό είναι μικρότερο από {}",
+                    lessThanEqual: "αυτό μικρότερο από ή ίσο μέ {}",
+                    greaterThan: "αυτό είναι μεγαλύτερο από {}",
+                    greaterThanEqual: "αυτό είναι μεγαλύτερο από ή ίσο μέ {}"
                 },
                 error: {
-                    pasteForMergedCell: "Unable to do this for merged cells"
+                    pasteForMergedCell: "Δεν γίνεται αυτή η ενέργεια σε συγχωνευμένα κελιά"
                 },
                 calendar: {
                     weeks: ["Κύρ", "Δευ", "Τρί", "Τέτ", "Πέμ", "Πάρ", "Σάβ"],
@@ -1395,37 +1395,37 @@
                     ok: "OK"
                 },
                 sort: {
-                    desc: "Sort Z -> A",
-                    asc: "Sort A -> Z"
+                    desc: "Ταξινόμιση Z -> A",
+                    asc: "Ταξινόμιση A -> Z"
                 },
                 filter: {
                     empty: "άδειο"
                 },
                 dataValidation: {
                     mode: "Mode",
-                    range: "Cell Range",
-                    criteria: "Criteria",
+                    range: "Έυρος κελιών",
+                    criteria: "Κριτήρια",
                     modeType: {
-                        cell: "Cell",
-                        column: "Colun",
-                        row: "Row"
+                        cell: "Κελί",
+                        column: "Στήλη",
+                        row: "Γραμμή"
                     },
                     type: {
-                        list: "List",
-                        number: "Number",
-                        date: "Date",
-                        phone: "Phone",
+                        list: "Λίστα",
+                        number: "Αριθμός",
+                        date: "Ημερομηνία",
+                        phone: "Τηλέφωνο",
                         email: "Email"
                     },
                     operator: {
-                        be: "between",
-                        nbe: "not betwwen",
-                        lt: "less than",
-                        lte: "less than or equal to",
-                        gt: "greater than",
-                        gte: "greater than or equal to",
-                        eq: "equal to",
-                        neq: "not equal to"
+                        be: "μεταξύ",
+                        nbe: "όχι μεταξύ",
+                        lt: "μικρότερο από",
+                        lte: "μικρότερο από ή ίσο μέ",
+                        gt: "μεγαλύτερο από",
+                        gte: "μεγαλύτερο από ή ίσο μέ",
+                        eq: "ίσο μέ",
+                        neq: "όχι ίσο μέ"
                     }
                 }
             }
