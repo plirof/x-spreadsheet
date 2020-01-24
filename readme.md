@@ -1,5 +1,18 @@
 # x-spreadsheet
 
+# info gr version
+
+## changes
+test03.html is template for lesson 2a+b (bookstore price/shoplist)
+
+# To Do
+- Implement jsonxls= param to fill excel from a json file in lessons/ folders
+- Implement image= param to fill the template image from a jpg file in lessons/ folders
+
+
+
+
+
 [![npm package](https://img.shields.io/npm/v/x-data-spreadsheet.svg)](https://www.npmjs.org/package/x-data-spreadsheet)
 [![NPM downloads](http://img.shields.io/npm/dm/x-data-spreadsheet.svg)](https://npmjs.org/package/x-data-spreadsheet)
 [![NPM downloads](http://img.shields.io/npm/dt/x-data-spreadsheet.svg)](https://npmjs.org/package/x-data-spreadsheet)
