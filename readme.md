@@ -3,6 +3,7 @@
 # info gr version
 
 ## changes
+* ver200124 - added divs probeserver ,file,lessonimage,jsonxls  (to test04.html)
 test03.html is template for lesson 2a+b (bookstore price/shoplist)
 
 # To Do
