@@ -6,6 +6,10 @@
 * ver200124 - added divs probeserver ,file,lessonimage,jsonxls  (to test04.html)
 test03.html is template for lesson 2a+b (bookstore price/shoplist)
 
+# Examples :
+- http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore
+- http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore&probeserver
+
 # To Do
 - Implement jsonxls= param to fill excel from a json file in lessons/ folders
 - Implement image= param to fill the template image from a jpg file in lessons/ folders

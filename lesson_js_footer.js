@@ -4,7 +4,7 @@
 *
 *
 * Changes:
-* ver200124 - added divs probeserver ,file,lessonimg,jsonxls(toDo)  (to test04.html) **reload works only inside the file= text
+* ver200124 - added divs probeserver ,file,lessonimg,jsonxls  (to test04.html) **reload works only inside the file= text
 * ver200121 - hidediv1-hidediv7 : eg http://192.168.1.200/tinymce_class/tinymce_template_form.html?file=temp_test01&hidediv2&hidediv1
 * ver200114 - probeserver reloads every 30sec, else load it once
 * ver191216 -initial tinymce version - sample http://192.168.1.200/tinymce_class/tinymce.html?probeserver&file=lesson05
@@ -128,7 +128,7 @@ var jsonrequestIntervalImage = function () {
 
 
 //var jsonrequestIntervalJSON = function (xs) {
-function jsonrequestIntervalJSON (xs,json_remote) {    
+function jsonrequestIntervalJSON () {    
     console.log("The JSON request was send");
     // <hr><div id="probeserver"></div><hr> 
     var jsonrequestIntervaledJSON = new XMLHttpRequest();
@@ -140,10 +140,9 @@ function jsonrequestIntervalJSON (xs,json_remote) {
             var response_string =jsonrequestIntervaledJSON.responseText;
             console.log("The JSON request was made and returned status="+jsonrequestIntervaledJSON.status+" , and results (with random number="+random_number /*+", response_string="+response_string*/);
 
-
             //always add our extra text -unless we got an 404 not found error
             if (jsonrequestIntervaledJSON.status!=404 && jsonrequestIntervaledJSON.status!=0) {json_remote = response_string;/* xs.loadData(response_string);*/}
-           
+                  // xs.loadData(json_remote).change((cdata) => {console.log(cdata);console.log(xs.validate()); }); }
         }
     }; // end of jsonrequestIntervaledJSON.onreadystatechange = function () {
     
