@@ -20,8 +20,9 @@ var url = new URL(location.href);
 
 var file_name_param = url.searchParams.get("file");
 var image_name_param = url.searchParams.get("lessonimg");
+var json_name_param = url.searchParams.get("jsonxls");
 
-console.log("file_name_param="+file_name_param +" , image_name_param= "+image_name_param);
+console.log("file_name_param="+file_name_param +" , image_name_param= "+image_name_param +", jsonxls="+json_name_param);
 
 
 
@@ -46,20 +47,22 @@ if (url_probeserver!==-1)server_probing_enabled=true;
 var timer_server_probe = 30000; //probe every 30 seconds
 var server_probe_file="lessons/lesson05.htm";
 var server_probe_image="lessons/lesson05.jpg";
-
+var server_probe_json="lessons/lesson05.json";
 
 if (file_name_param!==-1) {
     server_probe_file='lessons/'+file_name_param +".htm";
     console.log(server_probe_file);
-    
     }
 
 if (image_name_param!==-1) {
     server_probe_image='lessons/'+image_name_param +".jpg";
-    console.log(server_probe_image);
-    
+    console.log(server_probe_image);   
     }
 
+if (json_name_param!==-1) {
+    server_probe_json='lessons/'+json_name_param +".json";
+    console.log(server_probe_json);
+    }
 
 
 var jsonrequestInterval = function () {
@@ -101,7 +104,7 @@ var jsonrequestInterval = function () {
         }
     }; // end of jsonrequestIntervaled.onreadystatechange = function () {
     
-};
+}; //END of var jsonrequestInterval = function () {
 
 var jsonrequestIntervalImage = function () {
     console.log("The image request was send");
@@ -124,12 +127,38 @@ var jsonrequestIntervalImage = function () {
 };
 
 
+//var jsonrequestIntervalJSON = function (xs) {
+function jsonrequestIntervalJSON (xs,json_remote) {    
+    console.log("The JSON request was send");
+    // <hr><div id="probeserver"></div><hr> 
+    var jsonrequestIntervaledJSON = new XMLHttpRequest();
+    var random_number=Math.random(); // OLD was=Date.prototype.getTime;
+    jsonrequestIntervaledJSON.open("GET", server_probe_json+"?"+random_number, true); // Date.prototype.getTime is used to avoid caching
+    jsonrequestIntervaledJSON.send();
+    jsonrequestIntervaledJSON.onreadystatechange = function () {
+        if (jsonrequestIntervaledJSON.readyState == 4) {
+            var response_string =jsonrequestIntervaledJSON.responseText;
+            console.log("The JSON request was made and returned status="+jsonrequestIntervaledJSON.status+" , and results (with random number="+random_number /*+", response_string="+response_string*/);
+
+
+            //always add our extra text -unless we got an 404 not found error
+            if (jsonrequestIntervaledJSON.status!=404 && jsonrequestIntervaledJSON.status!=0) {json_remote = response_string;/* xs.loadData(response_string);*/}
+           
+        }
+    }; // end of jsonrequestIntervaledJSON.onreadystatechange = function () {
+    
+}; //END of var jsonrequestIntervalJSON = function () {
+
+
+
 
 if (file_name_param!==-1) jsonrequestInterval();
 if (image_name_param!==-1) jsonrequestIntervalImage();
+if (json_name_param!==-1) jsonrequestIntervalJSON();
 
 if(server_probing_enabled) {setInterval(jsonrequestInterval, timer_server_probe); }else {jsonrequestInterval();}
 if(server_probing_enabled) {setInterval(jsonrequestIntervalImage, timer_server_probe*2); }else {jsonrequestIntervalImage();}
+//if(server_probing_enabled) {setInterval(jsonrequestIntervalJSON, timer_server_probe*2); }else {jsonrequestIntervalJSON();} //We DO NOT want to update (student will loose his work)
 
 
 //-------------------probeserver ---------------
