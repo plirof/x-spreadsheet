@@ -4,7 +4,8 @@
 *
 *
 * Changes:
-* ver200124 - added divs probeserver ,file,lessonimg,jsonxls  (to test04.html) **reload works only inside the file= text
+* ver200126a - better null param checks
+* ver200124 - added divs probeserver ,file,image,jsonxls  (to test04.html) **reload works only inside the file= text
 * ver200121 - hidediv1-hidediv7 : eg http://192.168.1.200/tinymce_class/tinymce_template_form.html?file=temp_test01&hidediv2&hidediv1
 * ver200114 - probeserver reloads every 30sec, else load it once
 * ver191216 -initial tinymce version - sample http://192.168.1.200/tinymce_class/tinymce.html?probeserver&file=lesson05
@@ -19,7 +20,7 @@ var url_string = location;// "http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m
 var url = new URL(location.href);
 
 var file_name_param = url.searchParams.get("file");
-var image_name_param = url.searchParams.get("lessonimg");
+var image_name_param = url.searchParams.get("image");
 var json_name_param = url.searchParams.get("jsonxls");
 
 console.log("file_name_param="+file_name_param +" , image_name_param= "+image_name_param +", jsonxls="+json_name_param);
@@ -42,24 +43,26 @@ console.log("file_name_param="+file_name_param +" , image_name_param= "+image_na
 //+++++++++++++++++++ probeserver4lessons v02 1911+++++++++++++++++
 var server_probing_enabled=false;
 var url_probeserver=location.search.substring(1).indexOf("probeserver");
-if (url_probeserver!==-1)server_probing_enabled=true;
+//if (url_probeserver!==-1)
+if (url_probeserver!==null)     
+    server_probing_enabled=true;
 
 var timer_server_probe = 30000; //probe every 30 seconds
 var server_probe_file="lessons/lesson05.htm";
 var server_probe_image="lessons/lesson05.jpg";
 var server_probe_json="lessons/lesson05.json";
 
-if (file_name_param!==-1) {
-    server_probe_file='lessons/'+file_name_param +".htm";
+if (file_name_param!==-1 && file_name_param!==null) { 
+    server_probe_file='FILE path lessons/'+file_name_param +".htm";
     console.log(server_probe_file);
     }
 
-if (image_name_param!==-1) {
+if (image_name_param!==-1 && image_name_param!==null) {
     server_probe_image='lessons/'+image_name_param +".jpg";
     console.log(server_probe_image);   
     }
 
-if (json_name_param!==-1) {
+if (json_name_param!==-1 && json_name_param!==null) {
     server_probe_json='lessons/'+json_name_param +".json";
     console.log(server_probe_json);
     }
@@ -88,7 +91,7 @@ var jsonrequestInterval = function () {
             }
 
     // (((((((((((((((((((  option to hide only specific DIV (((((((((((((((((((
-    if((url_hidediv_param!==-1 ) && (url_time_param==-1 ) ){  //disable show_url IF we have set timer
+    if((url_hidediv_param!==-1 ) && (url_hidediv_param!==null ) /*&& (url_time_param==-1 )*/  ){  //disable show_url IF we have set timer
             //if((url_hidediv1==-1) && (url_time_param==-1 )) document.getElementById("div1").style.display = "none";
          if(url_hidediv1!==-1) document.getElementById("div1").style.display = "none";
          if(url_hidediv2!==-1) document.getElementById("div2").style.display = "none";
@@ -151,12 +154,18 @@ function jsonrequestIntervalJSON () {
 
 
 
-if (file_name_param!==-1) jsonrequestInterval();
-if (image_name_param!==-1) jsonrequestIntervalImage();
-if (json_name_param!==-1) jsonrequestIntervalJSON();
-
-if(server_probing_enabled) {setInterval(jsonrequestInterval, timer_server_probe); }else {jsonrequestInterval();}
-if(server_probing_enabled) {setInterval(jsonrequestIntervalImage, timer_server_probe*2); }else {jsonrequestIntervalImage();}
+//if (file_name_param!==-1) 
+if (file_name_param!==null) 
+    { jsonrequestInterval();}
+//if (image_name_param!==-1) 
+if (image_name_param!==null) 
+    jsonrequestIntervalImage();
+//if (json_name_param!==-1) 
+if (json_name_param!==null) 
+    jsonrequestIntervalJSON();
+//console.log ("DEBUGGGGGGGGGGGGGGGG") ;
+if (file_name_param!==null) {if(server_probing_enabled ) {setInterval(jsonrequestInterval, timer_server_probe); } else {jsonrequestInterval();}}
+if (image_name_param!==null) {if(server_probing_enabled) {setInterval(jsonrequestIntervalImage, timer_server_probe*2); }else {jsonrequestIntervalImage();}}
 //if(server_probing_enabled) {setInterval(jsonrequestIntervalJSON, timer_server_probe*2); }else {jsonrequestIntervalJSON();} //We DO NOT want to update (student will loose his work)
 
 

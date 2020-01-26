@@ -9,6 +9,7 @@ test03.html is template for lesson 2a+b (bookstore price/shoplist)
 # Examples :
 - http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore
 - http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore&probeserver
+- http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore&probeserver&image=hello
 
 # To Do
 - Implement jsonxls= param to fill excel from a json file in lessons/ folders
