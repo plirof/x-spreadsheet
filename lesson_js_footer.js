@@ -53,7 +53,7 @@ var server_probe_image="lessons/lesson05.jpg";
 var server_probe_json="lessons/lesson05.json";
 
 if (file_name_param!==-1 && file_name_param!==null) { 
-    server_probe_file='FILE path lessons/'+file_name_param +".htm";
+    server_probe_file='lessons/'+file_name_param +".htm";
     console.log(server_probe_file);
     }
 
