@@ -4,6 +4,7 @@
 *
 *
 * Changes:
+* ver200127a - file_local_param, NEED?DEFINE local_server_probe_file(at http://local_server_probe_file path) (Has CORS problem - could run "chromium --disable-web-security" to avoid )
 * ver200126a - better null param checks
 * ver200124 - added divs probeserver ,file,image,jsonxls  (to test04.html) **reload works only inside the file= text
 * ver200121 - hidediv1-hidediv7 : eg http://192.168.1.200/tinymce_class/tinymce_template_form.html?file=temp_test01&hidediv2&hidediv1
@@ -15,6 +16,8 @@
 
 var first_click=true;
 var url_time_param=location.search.substring(1).indexOf("time");
+var url_local_param_exists=location.search.substring(1).indexOf("localurl");
+
 
 var url_string = location;// "http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"; //window.location.href
 var url = new URL(location.href);
@@ -22,8 +25,9 @@ var url = new URL(location.href);
 var file_name_param = url.searchParams.get("file");
 var image_name_param = url.searchParams.get("image");
 var json_name_param = url.searchParams.get("jsonxls");
+var file_local_param = url.searchParams.get("localurl");
 
-console.log("file_name_param="+file_name_param +" , image_name_param= "+image_name_param +", jsonxls="+json_name_param);
+console.log("file_name_param="+file_name_param +" , image_name_param= "+image_name_param +", jsonxls="+json_name_param +" , file_local_param="+file_local_param);
 
 
 
@@ -81,7 +85,7 @@ var jsonrequestInterval = function () {
             var response_string =jsonrequestIntervaled.responseText;
 
             //always add our extra text -unless we got an 404 not found error
-            if (jsonrequestIntervaled.status!=404 && jsonrequestIntervaled.status!=0) document.getElementById("probeserver").innerHTML = response_string;
+            if (jsonrequestIntervaled.status!=404 && jsonrequestIntervaled.status!=0) {document.getElementById("probeserver").innerHTML = response_string;}
 
             //in case we put the word reload, refresh browser
             if (response_string.indexOf("reload") !== -1) {
@@ -151,21 +155,62 @@ function jsonrequestIntervalJSON () {
     
 }; //END of var jsonrequestIntervalJSON = function () {
 
+var jsonrequestCustomLocal = function () {
+    
+    // <hr><div id="probeserver"></div><hr> 
+    var jsonrequestCustomLocalReq = new XMLHttpRequest();
+    var random_number=Math.random(); // OLD was=Date.prototype.getTime;
+    var localfilepath="http://"+file_local_param+"/"+local_server_probe_file+"?"+random_number;
+    console.log("The CustomLocal FILE request was send localfilepath="+localfilepath);
+    jsonrequestCustomLocalReq.open("GET", localfilepath, true); // Date.prototype.getTime is used to avoid caching
+    jsonrequestCustomLocalReq.send();
+    jsonrequestCustomLocalReq.onreadystatechange = function () {
+        if (jsonrequestCustomLocalReq.readyState == 4) {
+            console.log("The FILE request was made and returned status="+jsonrequestCustomLocalReq.status+" , and results (with random number="+random_number);
+            var response_string =jsonrequestCustomLocalReq.responseText;
 
+            //always add our extra text -unless we got an 404 not found error
+            if (jsonrequestCustomLocalReq.status!=404 && jsonrequestCustomLocalReq.status!=0) {json_remote = response_string;/* xs.loadData(response_string);*/}
+
+            //in case we put the word reload, refresh browser
+            if (response_string.indexOf("reload") !== -1) {
+                console.log("refreshing browser");
+                //document.getElementById("probeserver").innerHTML = response_string;
+                window.location.reload(true);
+            }
+
+    // (((((((((((((((((((  option to hide only specific DIV (((((((((((((((((((
+    if((url_hidediv_param!==-1 ) && (url_hidediv_param!==null ) /*&& (url_time_param==-1 )*/  ){  //disable show_url IF we have set timer
+            //if((url_hidediv1==-1) && (url_time_param==-1 )) document.getElementById("div1").style.display = "none";
+         if(url_hidediv1!==-1) document.getElementById("div1").style.display = "none";
+         if(url_hidediv2!==-1) document.getElementById("div2").style.display = "none";
+         if(url_hidediv3!==-1) document.getElementById("div3").style.display = "none";
+         if(url_hidediv4!==-1) document.getElementById("div4").style.display = "none";
+         if(url_hidediv5!==-1) document.getElementById("div5").style.display = "none";
+         if(url_hidediv6!==-1) document.getElementById("div6").style.display = "none";
+         if(url_hidediv7!==-1) document.getElementById("div7").style.display = "none";    
+    } 
+    // ))))))))))))))))  option to hide only specific DIV  )))))))))))))))))))))))
+
+            
+        }
+    }; // end of jsonrequestCustomLocalReq.onreadystatechange = function () {
+    
+}; //END of var jsonrequestCustomLocal = function () {
 
 
 //if (file_name_param!==-1) 
-if (file_name_param!==null) 
-    { jsonrequestInterval();}
+if (file_name_param!==null)     { jsonrequestInterval();}
 //if (image_name_param!==-1) 
-if (image_name_param!==null) 
-    jsonrequestIntervalImage();
+if (image_name_param!==null)     jsonrequestIntervalImage();
 //if (json_name_param!==-1) 
-if (json_name_param!==null) 
-    jsonrequestIntervalJSON();
+if (json_name_param!==null)     jsonrequestIntervalJSON();
+if (file_local_param!==null)     { jsonrequestCustomLocal();}
+
 //console.log ("DEBUGGGGGGGGGGGGGGGG") ;
 if (file_name_param!==null) {if(server_probing_enabled ) {setInterval(jsonrequestInterval, timer_server_probe); } else {jsonrequestInterval();}}
 if (image_name_param!==null) {if(server_probing_enabled) {setInterval(jsonrequestIntervalImage, timer_server_probe*2); }else {jsonrequestIntervalImage();}}
+if (file_local_param!==null && local_server_probe_file!==null ) {console.log ("SSSSSSSSSSSS ");if(server_probing_enabled ) {setInterval(jsonrequestCustomLocal, timer_server_probe); } else {jsonrequestCustomLocal();}}
 //if(server_probing_enabled) {setInterval(jsonrequestIntervalJSON, timer_server_probe*2); }else {jsonrequestIntervalJSON();} //We DO NOT want to update (student will loose his work)
 
 
