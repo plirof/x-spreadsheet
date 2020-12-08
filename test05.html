@@ -19,17 +19,17 @@
   	var json_remote="{}";
   	var xs;
     //x.spreadsheet.locale('el');
+    //x_spreadsheet.locale('el');
 
     function load(){
       // x.spreadsheet.locale('zh-cn');
-      xs = x.spreadsheet('#x-spreadsheet-demo',// default options
+      xs = x_spreadsheet('#x-spreadsheet-demo',// default options
 							{
 							  showToolbar: true,
 							  showGrid: true,
 							  showContextmenu: true,
-					  
 							});
-      
+    
 
       setTimeout(
         function() { console.log ("--------------------------------------------HELLO getData");
