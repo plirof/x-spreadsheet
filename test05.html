@@ -13,8 +13,13 @@
   
   <!-- <img src="lessons/lesson2b-bookstore.jpg"> -->
   <div id=lessonimage><!--<img src="lessons/lesson2a-bookstore.jpg">--></div>
+  <BR>
+ <input type="submit" id="myCheck" onclick="mySave()">
+
   <HR>
   <div id="x-spreadsheet-demo"></div>
+
+
   <script>
   	var json_remote="{}";
   	var xs;
@@ -62,6 +67,10 @@
         getData(xs);
 
     }
+
+   function mySave() {
+      alert (JSON.stringify(xs.getData())); // Click on the checkbox
+   }
 
   </script>
 
