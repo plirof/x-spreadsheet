@@ -16,7 +16,7 @@ $mytext=$_REQUEST["text_entered"] ;
 
 echo "<HR>";
 //$cur_date= date('Ymd');
-$file_name="sch".$_REQUEST["schoolname"]."-".$_REQUEST["taksi"].$_REQUEST["tmima"]."-".date('Ymd')."-".$_REQUEST["name"].".htm";
+$file_name="sch-xls".$_REQUEST["schoolname"]."-".$_REQUEST["taksi"].$_REQUEST["tmima"]."-".date('Ymd')."-".$_REQUEST["name"].".htm";
 
 echo $file_name;
 //$file_name=$cur_date;
@@ -30,7 +30,7 @@ $txt = "$mytext\n";
 fwrite($myfile, $txt);
 fclose($myfile);
 
-
+echo "<h2>ΕΥΧΑΡΙΣΤΩ".$_REQUEST["name"]." ΚΑΤΑΧΩΡΗΘΗΚΕ Η ΑΠΑΝΤΗΣΗ</h2>";
 
 
 

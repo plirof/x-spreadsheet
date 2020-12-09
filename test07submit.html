@@ -20,10 +20,11 @@ Based on test05.html
   <div id=lessonimage><!--<img src="lessons/lesson2a-bookstore.jpg">--></div>
   <BR>
 
-<!--<form action="handle-submit.php" method="post" mouseover="mySave()" onsubmit="mySave()" >-->
-  <form action="return_request.php" method="post" mouseover="mySave()" onsubmit="mySave()"> 
+<form action="handle-submit.php" method="post" mouseover="mySave()" onsubmit="mySave()" >
+<!--  <form action="return_request.php" method="post" mouseover="mySave()" onsubmit="mySave()"> -->
     <div id="div-submit" ><!------------------------------div-submit -->
-    <textarea name="text_entered" id="text_entered" readonly ></textarea>
+    <!--<textarea name="text_entered" id="text_entered" readonly ></textarea> -->
+    <input type=hidden name="text_entered" id="text_entered" >
     <label for="name">ΟΝΟΜΑ ΣΧΟΛΕΙΟΥ:</label>
     <input type="text" id="schoolname" name="schoolname" size=15>
     <br>
@@ -49,8 +50,6 @@ Based on test05.html
     </div><!--------------------------------------------div-submit -->
   </form>
 
-
- <input type="submit" id="myCheck" onclick="mySave()">
 
   <HR>
   <div id="x-spreadsheet-demo"></div>

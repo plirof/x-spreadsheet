@@ -14,7 +14,34 @@
   <!-- <img src="lessons/lesson2b-bookstore.jpg"> -->
   <div id=lessonimage><!--<img src="lessons/lesson2a-bookstore.jpg">--></div>
   <BR>
- <input type="submit" id="myCheck" onclick="mySave()">
+<form action="handle-submit.php" method="post" mouseover="mySave()" onsubmit="mySave()" >
+<!--  <form action="return_request.php" method="post" mouseover="mySave()" onsubmit="mySave()"> -->
+    <div id="div-submit" ><!------------------------------div-submit -->
+    <textarea name="text_entered" id="text_entered" readonly ></textarea>
+    <label for="name">ΟΝΟΜΑ ΣΧΟΛΕΙΟΥ:</label>
+    <input type="text" id="schoolname" name="schoolname" size=15>
+    <br>
+    <br> ΤΑΞΗ:
+    <select name="taksi" id="taksi">
+      <option value="Α">Α</option>
+      <option value="Β">Β</option>
+      <option value="Γ">Γ</option>
+      <option value="Δ">Δ</option>
+      <option value="Ε">Ε</option>
+      <option value="ΣΤ">ΣΤ</option>
+    </select> ΤΜΗΜΑ:
+    <select name="tmima" id="tmima">
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+    <BR>
+    <label for="name">ΟΝΟΜΑ(ΤΑ):</label>
+    <input type="text" id="name" name="name" size=60>
+    <br>
+    <br>
+    <input type="submit" value="ΥΠΟΒΟΛΗ"> 
+    </div><!--------------------------------------------div-submit -->
+  </form>
 
   <HR>
   <div id="x-spreadsheet-demo"></div>

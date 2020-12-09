@@ -2,12 +2,16 @@
 
 # info gr version
 
+** Note tinyxls.html has current working version
+
 ## changes
+* ver 201208d -added submit capabillities (?showsubmit) -saves on word_saved_data(Based on test07submit.html)
 * ver201208b -trying to add submit (it shows with &showsubmit param) test07submit
 * ver200124 - added divs probeserver ,file,lessonimage,jsonxls  (to test04.html)
 test03.html is template for lesson 2a+b (bookstore price/shoplist)
 
 # Examples :
+- http://localhost/x-spreadsheet/tinyxls.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore&showsubmit
 - http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore
 - http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore&probeserver
 - http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore&probeserver&image=hello
@@ -17,7 +21,10 @@ test03.html is template for lesson 2a+b (bookstore price/shoplist)
 - Implement jsonxls= param to fill excel from a json file in lessons/ folders
 - Implement image= param to fill the template image from a jpg file in lessons/ folders
 
-
+# Paramaters
+- showsubmit : shows submit form (saves to word_saved_data folder)
+- probeserver : probes server for cahnges in sample file (to reload etc) -use it ONLY in classrom LAN
+- jsonxls :  (loads xls data to fill spreadsheet) jsonxls=lesson2b-bookstore
 
 
 
