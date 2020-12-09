@@ -3,6 +3,7 @@
 # info gr version
 
 ## changes
+* ver201208b -trying to add submit (it shows with &showsubmit param) test07submit
 * ver200124 - added divs probeserver ,file,lessonimage,jsonxls  (to test04.html)
 test03.html is template for lesson 2a+b (bookstore price/shoplist)
 
@@ -10,6 +11,7 @@ test03.html is template for lesson 2a+b (bookstore price/shoplist)
 - http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore
 - http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore&probeserver
 - http://localhost/x-spreadsheet/test05.html?file=lesson2b-bookstore&jsonxls=lesson2b-bookstore&probeserver&image=hello
+- http://localhost/x-spreadsheet/test07submit.html?showsubmit
 
 # To Do
 - Implement jsonxls= param to fill excel from a json file in lessons/ folders

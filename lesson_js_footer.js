@@ -43,6 +43,12 @@ console.log("file_name_param="+file_name_param +" , image_name_param= "+image_na
 // ))))))))))))))))  option to hide only specific DIV  )))))))))))))))))))))))
 
 
+// (((((((((((((((((((((((((( option to show submit button & name/school input fields ((((((((((
+    var url_show_submit_button=location.search.substring(1).indexOf("showsubmit");// != to -1 if we have this param
+    document.getElementById("div-submit").style.display = "none";
+    if(url_show_submit_button!==-1) {console.log("DIV-SUBMIT-style.display=block(show)");document.getElementById("div-submit").style.display = "block";}
+// )))))))))))))))))))))))))) option to show submit button & name/school input fields ))))))))
+
 
 //+++++++++++++++++++ probeserver4lessons v02 1911+++++++++++++++++
 var server_probing_enabled=false;

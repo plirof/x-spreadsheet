@@ -11,7 +11,7 @@ Changes
 
 print_r ($_REQUEST);
 
-
+echo $_SERVER['DOCUMENT_ROOT'];
 $mytext=$_REQUEST["text_entered"] ;
 
 echo "<HR>";
@@ -22,6 +22,7 @@ echo $file_name;
 //$file_name=$cur_date;
 
 
+//$myfile = fopen($_SERVER['DOCUMENT_ROOT']."/word_saved_data/".$file_name, "w") or die("Unable to open file!");
 $myfile = fopen("word_saved_data/".$file_name, "w") or die("Unable to open file!");
 $txt = "<h2>$file_name</h2>\n";
 fwrite($myfile, $txt);
