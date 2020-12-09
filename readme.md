@@ -23,10 +23,10 @@ test03.html is template for lesson 2a+b (bookstore price/shoplist)
 
 # Paramaters
 - showsubmit : shows submit form (saves to word_saved_data folder)
-- probeserver : probes server for cahnges in sample file (to reload etc) -use it ONLY in classrom LAN
+- probeserver : probes server for changes in sample text file (to reload etc) -use it ONLY in classrom LAN
 - jsonxls :  (loads xls data to fill spreadsheet) jsonxls=lesson2b-bookstore
 
-
+# FROM ORIGINAL page
 
 [![npm package](https://img.shields.io/npm/v/x-data-spreadsheet.svg)](https://www.npmjs.org/package/x-data-spreadsheet)
 [![NPM downloads](http://img.shields.io/npm/dm/x-data-spreadsheet.svg)](https://npmjs.org/package/x-data-spreadsheet)
