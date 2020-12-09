@@ -9,11 +9,11 @@
 <body onload="load()">
   <div id="x-spreadsheet-demo"></div>
   <script>
-    x.spreadsheet.locale('el');
+    
 
     function load(){
       // x.spreadsheet.locale('zh-cn');
-      var xs = x.spreadsheet('#x-spreadsheet-demo', {showToolbar: true, showGrid: true})
+      var xs = x_spreadsheet('#x-spreadsheet-demo', {showToolbar: true, showGrid: true})
         .loadData({
           freeze: 'B3',
           styles: [
@@ -56,6 +56,7 @@
           console.log(cdata);
           console.log(xs.validate());
         });
+       x_spreadsheet.locale('el'); 
     }
 
   </script>
@@ -67,7 +68,7 @@
 
 
 <script>
- // x.spreadsheet.locale('el');
+ // x_spreadsheet.locale('el');
 </script>
 
 </body>
